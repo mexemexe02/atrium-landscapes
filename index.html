@@ -3,1398 +3,598 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Atrium Landscapes — Barrie's premier landscape architecture and design firm. Crafting exquisite outdoor spaces with elegance and precision.">
-    <title>Atrium Landscapes | Barrie Landscape Architecture &amp; Design</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Atrium Landscapes | Landscape Architecture &amp; Design | Barrie, ON</title>
+    <meta name="description" content="Atrium Landscapes provides professional landscape architecture and design services in Barrie, Ontario. Transforming outdoor spaces into living works of art.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
-        /* ============ CSS RESET & BASE ============ */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
+            --sage: #5B8C5A;
+            --sage-dark: #3D6B3C;
+            --sage-light: #7BA87A;
+            --cream: #F7F3EB;
+            --cream-dark: #E8DFD0;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
             --white: #FFFFFF;
-            --off-white: #FAFAFA;
-            --cream: #F5F0EB;
-            --emerald: #0D6E4A;
-            --emerald-dark: #0A5C3E;
-            --emerald-light: #158A5F;
-            --emerald-pale: #E8F5F0;
-            --gold: #C8A24C;
-            --gold-light: #D4B76E;
-            --gold-dark: #A8832E;
-            --gold-pale: #FBF6ED;
-            --slate: #2D2D2D;
-            --slate-light: #555555;
-            --border-light: #E5E0DA;
-            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.10);
-            --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
-            --radius-sm: 4px;
-            --radius: 8px;
-            --radius-lg: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
         }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Raleway', 'Montserrat', sans-serif;
-            color: var(--slate);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
             background: var(--white);
             line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        h1, h2, h3, h4, .serif {
-            font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-            font-weight: 500;
-            letter-spacing: 0.01em;
+        /* NAVIGATION */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 16px 0; transition: var(--transition);
         }
-
-        /* ============ NAVIGATION ============ */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1.25rem 0;
-            transition: var(--transition);
-            background: transparent;
-        }
-
-        .nav.scrolled {
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: var(--shadow-md);
-            padding: 0.85rem 0;
-        }
-
-        .nav-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.65rem;
-            font-weight: 600;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 0.06em;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .nav.scrolled .nav-logo {
-            color: var(--emerald);
-        }
-
-        .nav-logo .logo-icon {
-            width: 40px;
-            height: 40px;
-            border: 2px solid currentColor;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255,255,255,0.9);
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.3rem 0;
-        }
-
-        .nav.scrolled .nav-links a {
-            color: var(--slate);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover { color: var(--gold); }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--sage); text-decoration: none; letter-spacing: -0.5px; }
+        .nav-logo i { margin-right: 8px; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; transition: var(--transition); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--sage); transition: width 0.3s ease; }
+        .nav-links a:hover { color: var(--sage); }
         .nav-links a:hover::after { width: 100%; }
-
-        .nav-cta {
-            background: var(--gold);
-            color: var(--white) !important;
-            padding: 0.55rem 1.5rem !important;
-            border-radius: 50px;
-            font-size: 0.78rem !important;
-            transition: var(--transition) !important;
-        }
-
+        .nav-cta { background: var(--sage); color: var(--white) !important; padding: 10px 24px; border-radius: 50px; transition: var(--transition); }
+        .nav-cta:hover { background: var(--sage-dark); }
         .nav-cta::after { display: none !important; }
 
-        .nav-cta:hover {
-            background: var(--gold-dark) !important;
-            color: var(--white) !important;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(200,162,76,0.4);
-        }
-
-        .nav.scrolled .nav-cta {
-            color: var(--white) !important;
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--white);
-            transition: var(--transition);
-            padding: 0.5rem;
-        }
-
-        .nav.scrolled .mobile-toggle { color: var(--emerald); }
-
-        /* ============ HERO ============ */
+        /* HERO */
         .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a3a2a 0%, #0D2F1E 30%, #0A2418 60%, #071A10 100%);
-            background-image: url("https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80");
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: multiply;
-            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.38);
-            overflow: hidden;
+            min-height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 50%, rgba(91,140,90,0.12) 100%);
+            position: relative; overflow: hidden;
         }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 70% 30%, rgba(200,162,76,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 30% 70%, rgba(13,110,74,0.15) 0%, transparent 50%);
-            z-index: 1;
+            content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(91,140,90,0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
-
-        .hero-bg-pattern {
-            position: absolute;
-            inset: 0;
-            opacity: 0.04;
-            background-image:
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px),
-                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
-            z-index: 2;
+        .hero-content { position: relative; z-index: 2; max-width: 650px; }
+        .hero-badge {
+            display: inline-block; background: rgba(91,140,90,0.12); color: var(--sage-dark);
+            padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+            margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;
         }
-
-        .hero-bg-image {
-            position: absolute;
-            inset: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%230D6E4A;stop-opacity:0.25"/><stop offset="100%25" style="stop-color:%231A1A1A;stop-opacity:0.5"/></linearGradient></defs><rect fill="url(%23g)" width="1200" height="800"/><circle cx="950" cy="200" r="300" fill="none" stroke="%23C8A24C" stroke-width="0.5" opacity="0.2"/><circle cx="200" cy="550" r="400" fill="none" stroke="%23C8A24C" stroke-width="0.5" opacity="0.15"/><circle cx="600" cy="400" r="500" fill="none" stroke="%23FFFFFF" stroke-width="0.3" opacity="0.08"/></svg>') center/cover no-repeat;
-            opacity: 0.5;
-            z-index: 0;
+        .hero h1 {
+            font-size: 3.5rem; font-weight: 800; line-height: 1.15;
+            color: var(--text); margin-bottom: 20px; letter-spacing: -1px;
         }
-
-        .hero-content {
-            position: relative; z-index: 2;
-            z-index: 3;
-            text-align: center;
-            max-width: 900px;
-            padding: 0 2rem;
+        .hero h1 span { color: var(--sage); }
+        .hero p {
+            font-size: 1.2rem; color: var(--text-light); margin-bottom: 36px; max-width: 520px;
         }
-
-        .hero-eyebrow {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.2s forwards;
-        }
-
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            font-weight: 500;
-            color: var(--white);
-            line-height: 1.15;
-            text-shadow: 0 2px 16px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.5);
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.005em;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.4s forwards;
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--gold-light);
-        }
-
-        .hero-subtitle {
-            font-family: 'Raleway', sans-serif;
-            font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-            font-weight: 300;
-            color: rgba(255,255,255,0.75);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.6s forwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.25rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.8s forwards;
-        }
-
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.9rem 2.2rem;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600;
+            text-decoration: none; cursor: pointer; border: none; transition: var(--transition);
         }
-
-        .btn-primary {
-            background: var(--gold);
-            color: var(--white);
+        .btn-primary { background: var(--sage); color: var(--white); }
+        .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,140,90,0.35); }
+        .btn-outline { background: transparent; color: var(--sage); border: 2px solid var(--sage); }
+        .btn-outline:hover { background: var(--sage); color: var(--white); transform: translateY(-2px); }
+        .hero-image {
+            position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+            width: 550px; height: 550px; border-radius: 24px; overflow: hidden;
+            box-shadow: var(--shadow-lg); z-index: 1;
         }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
-        .btn-primary:hover {
-            background: var(--gold-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(200,162,76,0.45);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 1.5px solid rgba(255,255,255,0.45);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--white);
-            background: rgba(255,255,255,0.05);
-            transform: translateY(-2px);
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 1.2s forwards, bounceDown 2s ease 1.5s infinite;
-        }
-
-        .hero-scroll a {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .hero-scroll a:hover { color: var(--gold); }
-        .hero-scroll i { font-size: 0.9rem; }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes bounceDown {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
-        }
-
-        /* ============ SECTION STYLES ============ */
-        .section {
-            padding: 7rem 2rem;
-        }
-
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* SECTION COMMON */
+        section { padding: 100px 0; }
         .section-tag {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--emerald);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            display: inline-block; color: var(--sage); font-weight: 700; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
         }
+        .section-title { font-size: 2.6rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin-bottom: 48px; }
 
-        .section-tag::before {
-            content: '';
-            width: 30px;
-            height: 1.5px;
-            background: var(--gold);
-            display: inline-block;
+        /* ABOUT */
+        .about { background: var(--cream); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .about-image { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); position: relative; }
+        .about-image img { width: 100%; height: 480px; object-fit: cover; display: block; }
+        .about-image::after {
+            content: ''; position: absolute; bottom: -16px; right: -16px;
+            width: 100%; height: 100%; border: 3px solid var(--sage);
+            border-radius: var(--radius); z-index: -1;
         }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+        .about-feature { display: flex; gap: 12px; }
+        .about-feature i { color: var(--sage); font-size: 1.3rem; margin-top: 4px; flex-shrink: 0; }
+        .about-feature h4 { font-size: 1rem; margin-bottom: 4px; }
+        .about-feature p { font-size: 0.9rem; color: var(--text-light); }
 
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 4vw, 3.2rem);
-            font-weight: 500;
-            color: var(--slate);
-            line-height: 1.2;
-            margin-bottom: 1.25rem;
-        }
-
-        .section-title em {
-            font-style: italic;
-            color: var(--emerald);
-        }
-
-        .section-desc {
-            font-size: 1.05rem;
-            color: var(--slate-light);
-            max-width: 620px;
-            line-height: 1.7;
-        }
-
-        .text-center { text-align: center; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-
-        /* ============ SERVICES ============ */
-        .services-section {
-            background: var(--off-white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
+        /* SERVICES */
+        .services { background: var(--white); }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
         .service-card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            background: var(--white); border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius); padding: 36px 28px; transition: var(--transition);
+            position: relative; overflow: hidden;
         }
-
+        .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--sage-light); }
         .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--emerald), var(--gold));
-            transform: scaleX(0);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--sage); transform: scaleX(0); transform-origin: left;
             transition: transform 0.4s ease;
         }
-
-        .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
         .service-card:hover::before { transform: scaleX(1); }
-
         .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1.5rem;
-            background: var(--emerald-pale);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            color: var(--emerald);
-            transition: var(--transition);
+            width: 56px; height: 56px; background: rgba(91,140,90,0.1);
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
         }
+        .service-icon i { font-size: 1.5rem; color: var(--sage); }
+        .service-card h3 { font-size: 1.25rem; margin-bottom: 10px; font-weight: 700; }
+        .service-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
 
-        .service-card:hover .service-icon {
-            background: var(--emerald);
-            color: var(--white);
-            transform: rotateY(180deg);
+        /* PROJECTS */
+        .projects { background: var(--cream); }
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .project-card {
+            border-radius: var(--radius); overflow: hidden; position: relative;
+            height: 320px; cursor: pointer;
         }
-
-        .service-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--slate);
+        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .project-card:hover img { transform: scale(1.08); }
+        .project-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            padding: 28px 20px 20px; color: var(--white);
+            transform: translateY(20px); opacity: 0; transition: var(--transition);
         }
+        .project-card:hover .project-overlay { transform: translateY(0); opacity: 1; }
+        .project-overlay h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .project-overlay p { font-size: 0.85rem; opacity: 0.85; }
 
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--slate-light);
-            line-height: 1.6;
+        /* PROCESS */
+        .process { background: var(--white); }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
+        .process-steps::before {
+            content: ''; position: absolute; top: 38px; left: 12%; right: 12%; height: 2px;
+            background: var(--cream-dark); z-index: 0;
         }
-
-        /* ============ ABOUT ============ */
-        .about-section {
-            background: var(--white);
+        .process-step { text-align: center; position: relative; z-index: 1; }
+        .step-number {
+            width: 76px; height: 76px; background: var(--sage); color: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 800; margin: 0 auto 20px;
+            box-shadow: 0 4px 16px rgba(91,140,90,0.3);
         }
+        .process-step h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .process-step p { font-size: 0.9rem; color: var(--text-light); }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            margin-top: 3rem;
+        /* TESTIMONIALS */
+        .testimonials { background: linear-gradient(135deg, var(--sage-dark), var(--sage)); color: var(--white); }
+        .testimonials .section-tag { color: rgba(255,255,255,0.8); }
+        .testimonials .section-title { color: var(--white); }
+        .testimonials .section-subtitle { color: rgba(255,255,255,0.85); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .testimonial-card {
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius);
+            padding: 32px;
         }
+        .stars { color: #FFD700; margin-bottom: 16px; font-size: 1rem; }
+        .testimonial-card p { font-style: italic; margin-bottom: 20px; line-height: 1.7; }
+        .testimonial-author { font-weight: 700; font-size: 0.95rem; }
+        .testimonial-role { font-size: 0.8rem; opacity: 0.7; }
 
-        .about-image {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: linear-gradient(135deg, #0D6E4A 0%, #0A5C3E 50%, #1a3a2a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* CONTACT */
+        .contact { background: var(--cream); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; }
+        .contact-info h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+        .contact-info > p { color: var(--text-light); margin-bottom: 32px; }
+        .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+        .contact-item i {
+            width: 48px; height: 48px; background: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: var(--sage); font-size: 1.1rem; flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-
-        .about-image-placeholder {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .about-image-placeholder i {
-            font-size: 4rem;
-            display: block;
-            margin-bottom: 1rem;
-            color: var(--gold-light);
-        }
-
-        .about-image-placeholder span {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .about-image .about-accent {
-            position: absolute;
-            bottom: -1px;
-            right: -1px;
-            width: 100px;
-            height: 100px;
-            background: var(--gold);
-            clip-path: polygon(100% 0, 0 100%, 100% 100%);
-        }
-
-        .about-text .section-tag { margin-bottom: 0.5rem; }
-
-        .about-text h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            color: var(--slate-light);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.75;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .about-stat {
-            text-align: center;
-        }
-
-        .about-stat .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--emerald);
-            display: block;
-        }
-
-        .about-stat .stat-label {
-            font-size: 0.78rem;
-            color: var(--slate-light);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        /* ============ PORTFOLIO ============ */
-        .portfolio-section {
-            background: var(--cream);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3.5rem;
-        }
-
-        .portfolio-item {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            background: linear-gradient(135deg, #e8e5df 0%, #d5d0c8 100%);
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .portfolio-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--slate-light);
-            transition: var(--transition);
-        }
-
-        .portfolio-placeholder i {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--emerald);
-            opacity: 0.5;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover .portfolio-placeholder i {
-            opacity: 0.8;
-            transform: scale(1.1);
-        }
-
-        .portfolio-placeholder span {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(13,110,74,0.85) 0%, rgba(10,92,62,0.3) 60%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-overlay-text {
-            color: var(--white);
-        }
-
-        .portfolio-overlay-text h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .portfolio-overlay-text p {
-            font-size: 0.78rem;
-            opacity: 0.85;
-            letter-spacing: 0.05em;
-        }
-
-        /* ============ CONTACT ============ */
-        .contact-section {
-            background: var(--white);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 5rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 500;
-            margin-bottom: 1.25rem;
-            line-height: 1.2;
-        }
-
-        .contact-info > p {
-            color: var(--slate-light);
-            margin-bottom: 2.5rem;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .contact-details {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-details li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .contact-details .contact-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            background: var(--emerald-pale);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: var(--emerald);
-        }
-
-        .contact-details .contact-text strong {
-            display: block;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--slate);
-            margin-bottom: 0.2rem;
-        }
-
-        .contact-details .contact-text span,
-        .contact-details .contact-text a {
-            color: var(--slate-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .contact-details .contact-text a:hover { color: var(--emerald); }
-
-        /* Form */
+        .contact-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
+        .contact-item p, .contact-item a { font-size: 0.95rem; color: var(--text-light); text-decoration: none; }
         .contact-form {
-            background: var(--off-white);
-            padding: 3rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
+            background: var(--white); border-radius: var(--radius); padding: 40px;
+            box-shadow: var(--shadow);
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 12px 16px; border: 2px solid var(--cream-dark);
+            border-radius: 8px; font-size: 0.95rem; font-family: inherit;
+            transition: var(--transition); background: var(--white);
         }
-
-        .form-group label {
-            display: block;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--slate);
-            margin-bottom: 0.5rem;
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px rgba(91,140,90,0.1);
         }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.85rem 1.1rem;
-            border: 1.5px solid var(--border-light);
-            border-radius: var(--radius);
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem;
-            color: var(--slate);
-            background: var(--white);
-            transition: var(--transition);
-            resize: vertical;
+        /* FOOTER */
+        footer {
+            background: var(--text); color: rgba(255,255,255,0.7); padding: 48px 0 24px;
         }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--emerald);
-            box-shadow: 0 0 0 3px rgba(13,110,74,0.08);
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand h3 { color: var(--white); font-size: 1.4rem; margin-bottom: 12px; }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a {
+            width: 40px; height: 40px; background: rgba(255,255,255,0.1);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: var(--white); text-decoration: none; transition: var(--transition);
         }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            background: var(--emerald);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 0.5rem;
-        }
-
-        .form-submit:hover {
-            background: var(--emerald-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(13,110,74,0.35);
-        }
-
-        /* ============ FOOTER ============ */
-        .footer {
-            background: var(--slate);
-            color: rgba(255,255,255,0.7);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-brand p {
-            font-size: 0.85rem;
-            line-height: 1.7;
-            max-width: 280px;
-        }
-
-        .footer-col h4 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--white);
-            margin-bottom: 1.25rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-        }
-
-        .footer-col ul li a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: var(--transition);
-        }
-
-        .footer-col ul li a:hover { color: var(--gold); }
-
+        .footer-social a:hover { background: var(--sage); }
+        .footer-col h4 { color: var(--white); font-size: 1rem; margin-bottom: 16px; font-weight: 700; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
+        .footer-col ul li a:hover { color: var(--sage-light); padding-left: 4px; }
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
+            padding-top: 20px; text-align: center; font-size: 0.85rem;
         }
+        .footer-bottom a { color: var(--sage-light); text-decoration: none; }
 
-        .footer-bottom .gold {
-            color: var(--gold);
-        }
-
-        /* ============ RESPONSIVE ============ */
-        @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .about-image { order: -1; max-height: 400px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.6rem; }
+            .hero-image { display: none; }
+            .about-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .projects-grid { grid-template-columns: 1fr 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .process-steps::before { display: none; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
-
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             .nav-links { display: none; }
-            .mobile-toggle { display: block; }
-
-            .nav-links.mobile-open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(12px);
-                padding: 2rem;
-                gap: 1.25rem;
-                box-shadow: var(--shadow-lg);
-            }
-
-            .nav-links.mobile-open a { color: var(--slate); }
-
+            .hero h1 { font-size: 2rem; }
             .services-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .about-stats { grid-template-columns: repeat(3, 1fr); }
+            .projects-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
-            .section { padding: 5rem 1.5rem; }
-            .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+            section { padding: 60px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============ NAVIGATION ============ -->
-    <nav class="nav" id="navbar">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <span class="logo-icon"><i class="fa-solid fa-leaf"></i></span>
-                Atrium
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
-            </ul>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+<!-- NAVIGATION -->
+<nav>
+    <div class="container">
+        <a href="#" class="nav-logo"><i class="fa-solid fa-leaf"></i>Atrium Landscapes</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="home">
-        <div class="hero-bg-pattern"></div>
-        <div class="hero-bg-image"></div>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
         <div class="hero-content">
-            <p class="hero-eyebrow">Barrie, Ontario</p>
-            <h1 class="hero-title">Crafting Barrie's <em>Finest</em> Outdoor Spaces</h1>
-            <p class="hero-subtitle">
-                Design-forward landscape architecture that transforms ordinary yards into extraordinary living environments — where nature meets artistry.
-            </p>
+            <div class="hero-badge">Barrie's Premier Landscape Architects</div>
+            <h1>Where Nature Meets <span>Architecture</span></h1>
+            <p>We design and build extraordinary outdoor spaces that blend natural beauty with architectural precision. From intimate garden retreats to grand estate landscapes, every project is a masterpiece.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Start Your Project <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+                <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-pen-ruler"></i> Start Your Project</a>
+                <a href="#projects" class="btn btn-outline"><i class="fa-solid fa-images"></i> View Our Work</a>
             </div>
         </div>
-        <div class="hero-scroll">
-            <a href="#services">
-                <span>Discover</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1558904541-eba843b5d984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beautiful landscape garden design by Atrium Landscapes" loading="eager">
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ============ SERVICES ============ -->
-    <section class="section services-section" id="services">
-        <div class="section-inner">
-            <div class="text-center">
-                <div class="section-tag" style="justify-content:center;">Our Expertise</div>
-                <h2 class="section-title">Comprehensive <em>Landscape</em> Services</h2>
-                <p class="section-desc mx-auto">
-                    From initial concept to final planting, we deliver every element of your outdoor vision with meticulous attention to detail.
-                </p>
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Atrium Landscapes team designing a garden" loading="lazy">
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <h3>Landscape Architecture</h3>
-                    <p>Master planning and spatial design that harmonizes architecture with the natural environment. Site analysis, grading plans, and conceptual masterplans tailored to Barrie's unique climate.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
-                    <h3>Garden Design</h3>
-                    <p>Curated plant palettes, perennial borders, and structural planting schemes that deliver year-round interest. Native species expertise for sustainable, low-maintenance gardens.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
-                    <h3>Stonework &amp; Masonry</h3>
-                    <p>Natural stone retaining walls, flagstone patios, cobblestone driveways, and custom masonry features built to last generations with old-world craftsmanship.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-water"></i></div>
-                    <h3>Water Features</h3>
-                    <p>Reflecting pools, cascading waterfalls, koi ponds, and contemporary water walls — designed and installed to create a sense of tranquility and movement.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
-                    <h3>Outdoor Living Spaces</h3>
-                    <p>Outdoor kitchens, fire features, pergolas, and entertainment areas that extend your home's living space into the landscape. Comfort meets craftsmanship.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                    <h3>Landscape Lighting</h3>
-                    <p>Architectural and landscape illumination that transforms your property after dusk. Path lighting, uplighting, and feature highlighting for drama and safety.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section about-section" id="about">
-        <div class="section-inner">
-            <div class="about-grid">
-                <div class="about-image">
-                    <div class="about-image-placeholder">
+            <div>
+                <span class="section-tag">About Us</span>
+                <h2 class="section-title">Crafting Outdoor Masterpieces Since 2008</h2>
+                <p class="section-subtitle">Atrium Landscapes is Barrie's trusted name in high-end landscape architecture. We combine artistic vision with horticultural expertise to create spaces that inspire, relax, and endure through every season.</p>
+                <div class="about-features">
+                    <div class="about-feature">
                         <i class="fa-solid fa-tree"></i>
-                        <span>Atrium Landscapes</span>
+                        <div><h4>Native Plantings</h4><p>Sustainable species that thrive in Ontario's climate</p></div>
                     </div>
-                    <div class="about-accent"></div>
-                </div>
-                <div class="about-text">
-                    <div class="section-tag">Our Story</div>
-                    <h2>Design-Forward Landscaping, Rooted in Barrie</h2>
-                    <p>
-                        Atrium Landscapes was born from a belief that outdoor spaces deserve the same architectural consideration as interiors. Based in Barrie, Ontario, we bring a design-first philosophy to every project — whether it's a sprawling estate garden or an intimate urban courtyard.
-                    </p>
-                    <p>
-                        Our team combines formal training in landscape architecture with decades of hands-on horticultural and construction experience. We don't just plant gardens; we compose outdoor rooms, sculpt landforms, and craft settings where memories take root.
-                    </p>
-                    <p>
-                        Every project begins with listening — to our clients' aspirations, to the site's natural character, and to the architectural language of the home. The result is landscapes that feel inevitable, as though they've always belonged.
-                    </p>
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="stat-number">200+</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Client Satisfaction</span>
-                        </div>
+                    <div class="about-feature">
+                        <i class="fa-solid fa-droplet"></i>
+                        <div><h4>Smart Irrigation</h4><p>Water-efficient systems for lush, healthy gardens</p></div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        <div><h4>3D Renderings</h4><p>See your design before we break ground</p></div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fa-solid fa-certificate"></i>
+                        <div><h4>Fully Licensed</h4><p>Certified landscape architects, insured & bonded</p></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ============ PORTFOLIO ============ -->
-    <section class="section portfolio-section" id="portfolio">
-        <div class="section-inner">
-            <div class="text-center">
-                <div class="section-tag" style="justify-content:center;">Our Work</div>
-                <h2 class="section-title">Project <em>Portfolio</em></h2>
-                <p class="section-desc mx-auto">
-                    A curated selection of recent projects across Barrie and Simcoe County. Each space tells a unique story.
-                </p>
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="container">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Comprehensive Landscape Services</h2>
+        <p class="section-subtitle">From concept to completion, we offer a full spectrum of landscape architecture and design services tailored to your vision.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>Landscape Architecture</h3>
+                <p>Master planning and detailed design for residential and commercial properties. We create cohesive outdoor environments that balance form, function, and nature.</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <i class="fa-solid fa-image"></i>
-                        <span>Kempenfelt Bay Estate</span>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-text">
-                            <h4>Kempenfelt Bay Estate</h4>
-                            <p>Waterfront Garden &amp; Terrace</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <i class="fa-solid fa-image"></i>
-                        <span>Ardagh Bluffs Residence</span>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-text">
-                            <h4>Ardagh Bluffs Residence</h4>
-                            <p>Natural Stone Courtyard</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <i class="fa-solid fa-image"></i>
-                        <span>Downtown Barrie Oasis</span>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-text">
-                            <h4>Downtown Barrie Oasis</h4>
-                            <p>Urban Garden Retreat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <i class="fa-solid fa-image"></i>
-                        <span>Innisfil Lake House</span>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-text">
-                            <h4>Innisfil Lake House</h4>
-                            <p>Lakeside Entertaining Space</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <i class="fa-solid fa-image"></i>
-                        <span>South End Modern</span>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-text">
-                            <h4>South End Modern</h4>
-                            <p>Contemporary Poolscape</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <i class="fa-solid fa-image"></i>
-                        <span>Heritage District Garden</span>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-overlay-text">
-                            <h4>Heritage District Garden</h4>
-                            <p>Period Restoration &amp; Planting</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3>Garden Design</h3>
+                <p>Curated plant palettes, perennial borders, specimen trees, and seasonal colour schemes designed to provide year-round visual interest and ecological benefit.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-water"></i></div>
+                <h3>Water Features</h3>
+                <p>Custom ponds, cascading waterfalls, reflecting pools, and contemporary fountains that add movement, sound, and tranquillity to your outdoor space.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
+                <h3>Outdoor Living</h3>
+                <p>Fire pits, outdoor kitchens, dining terraces, and lounge areas that extend your living space into the natural world for entertaining and relaxation.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3>Landscape Lighting</h3>
+                <p>Architectural and ambient lighting design that transforms your garden after dark, highlighting key features and creating magical evening atmospheres.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
+                <h3>Garden Maintenance</h3>
+                <p>Seasonal care programs including pruning, fertilizing, mulching, and plant health monitoring to keep your landscape looking its absolute best year-round.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="section contact-section" id="contact">
-        <div class="section-inner">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="section-tag">Get in Touch</div>
-                    <h2>Let's Discuss <em>Your Project</em></h2>
-                    <p>
-                        Every great landscape begins with a conversation. Reach out to schedule a consultation — we'll visit your property, understand your vision, and chart a path forward.
-                    </p>
-                    <ul class="contact-details">
-                        <li>
-                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                            <div class="contact-text">
-                                <strong>Phone</strong>
-                                <a href="tel:+17055551234">(705) 555-1234</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                            <div class="contact-text">
-                                <strong>Email</strong>
-                                <a href="mailto:hello@atriumlandscapes.ca">hello@atriumlandscapes.ca</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div class="contact-text">
-                                <strong>Studio</strong>
-                                <span>Barrie, Ontario &mdash; Serving Simcoe County</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
-                            <div class="contact-text">
-                                <strong>Hours</strong>
-                                <span>Mon &ndash; Fri: 8:00 AM &ndash; 5:00 PM<br>Sat: By Appointment</span>
-                            </div>
-                        </li>
-                    </ul>
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+    <div class="container">
+        <span class="section-tag">Our Portfolio</span>
+        <h2 class="section-title">Recent Projects</h2>
+        <p class="section-subtitle">A glimpse into some of our favourite transformations across Barrie and Simcoe County.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern landscape design project" loading="lazy">
+                <div class="project-overlay"><h4>Modern Courtyard Retreat</h4><p>Barrie, ON &mdash; Residential</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1564013799919-ab600027f377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estate garden landscape" loading="lazy">
+                <div class="project-overlay"><h4>Lakeside Estate Gardens</h4><p>Kempenfelt Bay &mdash; Residential</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contemporary garden design" loading="lazy">
+                <div class="project-overlay"><h4>Zen Meditation Garden</h4><p>Innisfil, ON &mdash; Residential</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1501003878642-f45e5dfef0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury outdoor living space" loading="lazy">
+                <div class="project-overlay"><h4>Rooftop Terrace</h4><p>Downtown Barrie &mdash; Commercial</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garden with water feature" loading="lazy">
+                <div class="project-overlay"><h4>Waterfront Garden</h4><p>Oro-Medonte, ON &mdash; Residential</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1509228468511-8721e662d27b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Flowering garden pathway" loading="lazy">
+                <div class="project-overlay"><h4>Perennial Pathway</h4><p>South Barrie &mdash; Residential</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+    <div class="container">
+        <span class="section-tag">How We Work</span>
+        <h2 class="section-title">Our Design Process</h2>
+        <p class="section-subtitle">A proven approach that takes your landscape from vision to reality with clarity at every step.</p>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Consultation</h4>
+                <p>We visit your property, discuss your goals, lifestyle, and budget, and assess the site's unique characteristics.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Design</h4>
+                <p>Our team creates detailed concept plans, 3D renderings, and planting schemes for your review and feedback.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Build</h4>
+                <p>Our skilled crews bring the design to life with precision craftsmanship, quality materials, and careful plant installation.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Enjoy</h4>
+                <p>We provide a care guide and ongoing maintenance options so your landscape thrives for years to come.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <span class="section-tag">Client Reviews</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">We're proud to have earned the trust of homeowners across Barrie and Simcoe County.</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Atrium transformed our barren backyard into a lush, private oasis. The design exceeded every expectation and the team was a pleasure to work with from start to finish."</p>
+                <div class="testimonial-author">Sarah &amp; Michael T.</div>
+                <div class="testimonial-role">Homeowners, Barrie</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"The 3D renderings helped us visualize everything before construction began. The finished garden is even more beautiful than we imagined. Truly world-class landscape architecture."</p>
+                <div class="testimonial-author">David R.</div>
+                <div class="testimonial-role">Property Developer, Innisfil</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"We hired Atrium for our commercial property's courtyard redesign. The result has become a talking point for every visitor. Professional, punctual, and genuinely talented designers."</p>
+                <div class="testimonial-author">Lisa M.</div>
+                <div class="testimonial-role">Business Owner, Downtown Barrie</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <span class="section-tag">Get In Touch</span>
+                <h3>Let's Design Your Dream Landscape</h3>
+                <p>Ready to transform your outdoor space? Reach out for a complimentary consultation. We serve Barrie, Innisfil, Oro-Medonte, and throughout Simcoe County.</p>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <a href="tel:+17053054768">(705) 305-4768</a>
+                    </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm" onsubmit="handleSubmit(event)">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(705) 555-0000">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service...</option>
-                                <option value="landscape-architecture">Landscape Architecture</option>
-                                <option value="garden-design">Garden Design</option>
-                                <option value="stonework">Stonework &amp; Masonry</option>
-                                <option value="water-features">Water Features</option>
-                                <option value="outdoor-living">Outdoor Living Spaces</option>
-                                <option value="landscape-lighting">Landscape Lighting</option>
-                                <option value="other">Other / Multiple Services</option>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:info@atriumlandscapes.ca">info@atriumlandscapes.ca</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Service Area</h4>
+                        <p>Barrie, ON &amp; Simcoe County</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Hours</h4>
+                        <p>Mon&ndash;Fri: 8:00 AM &ndash; 6:00 PM<br>Sat: 9:00 AM &ndash; 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" placeholder="Your name" required></div>
+                        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="your@email.com" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(705) 000-0000"></div>
+                        <div class="form-group"><label for="service">Service Interested In</label>
+                            <select id="service">
+                                <option value="">Select a service</option>
+                                <option value="architecture">Landscape Architecture</option>
+                                <option value="garden">Garden Design</option>
+                                <option value="water">Water Features</option>
+                                <option value="living">Outdoor Living</option>
+                                <option value="lighting">Landscape Lighting</option>
+                                <option value="maintenance">Maintenance</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Tell Us About Your Project *</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Describe your property, vision, and any specific ideas you have in mind..." required></textarea>
-                        </div>
-                        <button type="submit" class="form-submit">
-                            Send Inquiry <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group"><label for="message">Tell Us About Your Project</label><textarea id="message" placeholder="Describe your vision, property size, and any specific ideas..." required></textarea></div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</button>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>Atrium Landscapes</h3>
-                    <p>Design-forward landscape architecture and construction serving Barrie, Ontario and Simcoe County. Crafting outdoor spaces of enduring beauty since 2011.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Landscape Architecture</a></li>
-                        <li><a href="#services">Garden Design</a></li>
-                        <li><a href="#services">Stonework &amp; Masonry</a></li>
-                        <li><a href="#services">Water Features</a></li>
-                        <li><a href="#services">Outdoor Living</a></li>
-                        <li><a href="#services">Landscape Lighting</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i>&nbsp;&nbsp;Instagram</a></li>
-                        <li><a href="#"><i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
-                        <li><a href="#"><i class="fa-brands fa-pinterest"></i>&nbsp;&nbsp;Pinterest</a></li>
-                        <li><a href="#"><i class="fa-brands fa-houzz"></i>&nbsp;&nbsp;Houzz</a></li>
-                    </ul>
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-leaf"></i> Atrium Landscapes</h3>
+                <p>Barrie's premier landscape architecture and design studio. Creating extraordinary outdoor spaces that harmonize nature with inspired design since 2008.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" aria-label="Houzz"><i class="fa-brands fa-houzz"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Atrium Landscapes. All rights reserved.</span>
-                <span>Crafted with <span class="gold">&#9829;</span> in Barrie, Ontario</span>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Landscape Architecture</a></li>
+                    <li><a href="#services">Garden Design</a></li>
+                    <li><a href="#services">Water Features</a></li>
+                    <li><a href="#services">Outdoor Living</a></li>
+                    <li><a href="#services">Lighting Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#projects">Portfolio</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Service Area</h4>
+                <ul>
+                    <li><a href="#">Barrie</a></li>
+                    <li><a href="#">Innisfil</a></li>
+                    <li><a href="#">Oro-Medonte</a></li>
+                    <li><a href="#">Springwater</a></li>
+                    <li><a href="#">Essa</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
-
-    <!-- ============ SCRIPTS ============ -->
-    <script>
-        // Navbar scroll behavior
-        const navbar = document.getElementById('navbar');
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 60) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-open');
-            const icon = mobileToggle.querySelector('i');
-            if (navLinks.classList.contains('mobile-open')) {
-                icon.className = 'fa-solid fa-xmark';
-            } else {
-                icon.className = 'fa-solid fa-bars';
-            }
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('mobile-open');
-                mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
-            });
-        });
-
-        // Smooth scroll for anchor links (fallback for older browsers)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .portfolio-item, .about-image, .about-text').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            observer.observe(el);
-        });
-
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            const btn = event.target.querySelector('.form-submit');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            // Simulate submission (replace with real endpoint)
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-                btn.style.background = '#C8A24C';
-                event.target.reset();
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            }, 1200);
-        }
-    </script>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Atrium Landscapes. All rights reserved. | <a href="#">Privacy Policy</a> | Serving Barrie, ON &amp; Simcoe County</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
