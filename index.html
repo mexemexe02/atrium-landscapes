@@ -208,7 +208,8 @@
             background-image: url("https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80");
             background-size: cover;
             background-position: center;
-            background-blend-mode: overlay;
+            background-blend-mode: multiply;
+            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.38);
             overflow: hidden;
         }
 
@@ -241,7 +242,7 @@
         }
 
         .hero-content {
-            position: relative;
+            position: relative; z-index: 2;
             z-index: 3;
             text-align: center;
             max-width: 900px;
@@ -266,6 +267,7 @@
             font-weight: 500;
             color: var(--white);
             line-height: 1.15;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.5);
             margin-bottom: 1.5rem;
             letter-spacing: 0.005em;
             opacity: 0;
